@@ -1,7 +1,11 @@
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+        <!--以下均为无命名空间的情况-->
+        <!--<li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>-->
         <!-- <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
         在某种程度上和上述语句同一意义，但是后者修改起来相对困难
         由于我们在polls.urls 的 url() 函数中通过 name 参数为 URL 定义了名字，故可以使用 {% url %} 标签代替它：

@@ -1,7 +1,12 @@
 from django.conf.urls import url
 
 from . import views
+from django.urls import path
 
+from . import views
+
+
+'''
 urlpatterns = [
     # ex: /polls/
     url(r'^$', views.index, name='index'),
@@ -14,6 +19,23 @@ urlpatterns = [
     # ex: /polls/error
     url(r'^error$', views.error, name='error'),
 ]
+'''
+
+
+'''由于引用比较多时，可能产生重名现象，所以需要添加明明空间'''
+
+from django.urls import path
+
+from . import views
+
+app_name = 'polls'
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:question_id>/', views.detail, name='detail'),
+    path('<int:question_id>/results/', views.results, name='results'),
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+
 
 
 '''
