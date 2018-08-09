@@ -1,0 +1,12 @@
+<!--same to results.html-->
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+<!--<li>表示列表项。<ul>表示无序排列，<ol>表示有序排列。即在<ul> </ul>中写入<li>可以构成一个无序列表，而在<ol> </ol>中写入<li>构成的是一个有序列表 -->

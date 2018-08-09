@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 """
 Django settings for mysite project.
 
@@ -30,9 +31,11 @@ ALLOWED_HOSTS = []
 
 # Application definition
 '''
+
 需要使用的应用
 大多基于数据库
 需要python manage.py migrate 来迁移
+
 '''
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
